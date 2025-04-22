@@ -98,7 +98,7 @@ const TabOneScreen: React.FC = () => {
       fetchSearchResults(debouncedSearchTerm);
     } else {
       console.log('Termo de pesquisa vazio, mostrando lista completa.');
-      setFilteredPokemonList([...pokemonList]); // Crie uma nova referência de array
+      setFilteredPokemonList([...pokemonList]); 
     }
   }, [debouncedSearchTerm, allPokemonNames, pokemonList]);
 
@@ -150,7 +150,7 @@ const TabOneScreen: React.FC = () => {
         break;
       }
     }
-    setFilteredPokemonList([...results]); // Crie uma nova referência de array aqui também
+    setFilteredPokemonList([...results]); 
     setLoading(false);
     console.log('Resultados da pesquisa:', results);
   };
@@ -164,7 +164,7 @@ const TabOneScreen: React.FC = () => {
     setError(null);
     try {
       const offset = url ? getOffsetFromUrl(url) : 0;
-      const data = await fetchPokemonList(1000, offset); // Tentando carregar mais Pokémon inicialmente
+      const data = await fetchPokemonList(1000, offset); 
       setPokemonList(prevList => (url ? [...prevList, ...data.results] : data.results));
       setNextUrl(data.next);
     } catch (err: any) {
@@ -193,7 +193,7 @@ const TabOneScreen: React.FC = () => {
     setPokemonDetails(null);
     setLoading(true);
     setError(null);
-    console.log('handlePokemonPress chamado para:', pokemon.name, 'URL:', pokemon.url); // Adicione este log
+    console.log('handlePokemonPress chamado para:', pokemon.name, 'URL:', pokemon.url); 
     try {
       const response = await fetch(pokemon.url);
       if (response.ok) {
@@ -247,7 +247,7 @@ const TabOneScreen: React.FC = () => {
   renderItem={({ item }) => (
     <PokemonCard
       pokemon={item}
-      onPress={handlePokemonPress} // Certifique-se de que está assim
+      onPress={handlePokemonPress} 
       key={item.url}
     />
         )}
