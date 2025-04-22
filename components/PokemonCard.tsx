@@ -1,7 +1,7 @@
 // components/PokemonCard.tsx
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { PokemonListItem } from '../services/api'; // Importe a interface
+import { PokemonListItem } from '../services/api'; 
 
 interface Props {
   pokemon: PokemonListItem;
@@ -17,8 +17,7 @@ const PokemonCard: React.FC<Props> = ({ pokemon, onPress }) => {
   const pokemonId = getPokemonIdFromUrl(pokemon.url);
   const imageUrl = pokemonId ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png` : null;
 
-  console.log('PokemonCard renderizado para:', pokemon.name, 'URL da imagem:', imageUrl, 'Pokemon object:', pokemon); // Adicione este log
-
+  console.log('PokemonCard renderizado para:', pokemon.name, 'URL da imagem:', imageUrl, 'Pokemon object:', pokemon); 
   return (
     <TouchableOpacity style={styles.card} onPress={() => onPress(pokemon)} key={pokemon.url}>
       <View style={styles.imageContainer}>
